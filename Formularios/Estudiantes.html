@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudiantes</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/JS/Estudiantes.js"></script>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="consulta mt-4">
+            <div class="row">
+                <div class="col-6">
+                    <h3>
+                        Lista de Estudiantes Matriculados
+                    </h3>
+                </div>
+            </div>
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Numero del Alumno</th>
+                                <th>Nombre</th>
+                                <th>Apellidos</th>
+                                <th>Fecha de Nacimiento</th>
+                                <th>Direccion</th>
+                                <th>Altura</th>
+                                <th>Carrera</th>
+                            </tr>
+                        </thead>
+                        <tbody id="DataEstudiantes">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="Formulario">
+            <div class="row">
+                <div class="col-12">
+                    <h3>
+                        Agregar Estudiante
+                    </h3>
+                </div>
+                <div class="col-12">
+                    <form class="estudiante">
+                        <label for="">Numero de alumno</label>
+                        <input type="text" id="Numero_Alumno" class="form-control" placeholder="Ingrese el numero de Estudiante">
+                        <label for="">Nombre</label>
+                        <input type="text" id="Nombre" class="form-control" placeholder="Ingrese el nombre Estudiante">
+                        <label for="">Apellidos</label>
+                        <input type="text" id="Apellidos" class="form-control" placeholder="Ingrese los apellidos Estudiante">
+                        <label for="">Fecha de Nacimiento</label>
+                        <input type="text" id="Fecha_Nacimiento" class="form-control" placeholder="Ingrese la fecha de nacimiento del Estudiante">
+                        <label for="">Direccion</label>
+                        <input type="text" id="Direccion" class="form-control" placeholder="Ingrese la direccion del Estudiante">
+                        <label for="">Altura</label>
+                        <input type="text" id="Altura" class="form-control" placeholder="Ingrese altura del Estudiante">
+                        <label for="">Carrera</label>
+                        <input type="text" id="Carrera" class="form-control" placeholder="Ingrese la carrera Estudiante">
+                        <hr>
+                        <div id="btnagregarestudiantes">
+                            <input type="submit" id="btnagregar" onclick="AgregarAlumno()" value="Ingresar Alumno" class="btn btn-success">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>
