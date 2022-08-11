@@ -2,7 +2,7 @@ var UrlEstudiantes = 'http://20.216.41.245:90/G7_19/controller/estudiantes.php?o
 var UrlInsertarEstudiantes = 'http://20.216.41.245:90/G7_19/controller/estudiantes.php?op=InsertEstudiante';
 var UrlGetEstudiante = 'http://20.216.41.245:90/G7_19/controller/estudiantes.php?op=GetEstudiante';
 var UrlUpdateEstudiante = 'http://20.216.41.245:90/G7_19/controller/estudiantes.php?op=UpdateEstudiante';
-var UrlDeleteEstudiante = 'http://20.216.41.245:90/G7_19/controller/estudiantes.php?op=DeleteEstudiante'
+var UrlDeleteEstudiante = 'http://20.216.41.245:90/G7_19/controller/estudiantes.php?op=DeleteEstudiante';
 
 $(document).ready(function(){
     CargarEstudiantes();
