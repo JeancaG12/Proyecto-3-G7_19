@@ -28,7 +28,7 @@ function CargarAsignaturas(){
                 '<td>'+ MiItems[i].PromedioAprob +'</td>'+
                 '<td>'+ MiItems[i].NumeroEdificio +'</td>'+
                 '<td>'+
-                '<button class="btn btn-info" onclick="CargarAsignatura('+ MiItems[i].CodigoAsignatura +')">Editar</button>'+
+                '<button class="btn btn-info" onclick="CargarAsignatura('+ MiItems[i].CodigoAsignatura+')">Editar</button>'+
                 '</td>'+
                 '<td>'+
                 '<button class="btn btn-danger" onclick="EliminarAsignatura('+ MiItems[i].CodigoAsignatura+')">Eliminar</button>'+
@@ -150,7 +150,7 @@ function EliminarAsignatura(codigoasignatura){
             alert('Error al eliminar asignatura'+ textStatus + errorThrown);
         }
     });
-    alert("Socio Eliminado");
+    alert("Asignatura Eliminada");
     CargarAsignaturas();
 
 }
