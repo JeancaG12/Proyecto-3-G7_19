@@ -2,6 +2,7 @@ var UrlAsignaturas = 'http://20.216.41.245:90/G7_19/controller/asignatura.php?op
 var UrlInsertAsignatura = 'http://20.216.41.245:90/G7_19/controller/asignatura.php?opc=InsertAsignatura';
 var UrlGetAsignatura = 'http://20.216.41.245:90/G7_19/controller/asignatura.php?opc=GetAsignatura';
 var UrlUpdateAsignatura = 'http://20.216.41.245:90/G7_19/controller/asignatura.php?opc=UpdateAsignatura';
+var UrlDeleteAsignatura = 'http://20.216.41.245:90/G7_19/controller/asignatura.php?opc=DeleteAsignatura';
 
 $(document).ready(function(){
     CargarAsignaturas();
@@ -28,6 +29,9 @@ function CargarAsignaturas(){
                 '<td>'+ MiItems[i].NumeroEdificio +'</td>'+
                 '<td>'+
                 '<button class="btn btn-info" onclick="CargarAsignatura('+ MiItems[i].CodigoAsignatura +')">Editar</button>'+
+                '</td>'+
+                '<td>'+
+                '<button class="btn btn-danger" onclick="EliminarAsignatura('+ MiItems[i].CodigoAsignatura+')">Eliminar</button>'+
                 '</td>'+
             '</tr>';
             $('#DataAsignaturas').html(Valores);
@@ -67,11 +71,10 @@ function AgregarAsignatura(){
     alert('Aviso');
 }  
 
-function CargarAsignatura(codigoasignatura){
+function CargarAsignatura(codigoasignatura) {
     var datosasignatura = {
         CodigoAsignatura: codigoasignatura
     };
-
     var datosasignaturajson = JSON.stringify(datosasignatura);
 
     $.ajax({
@@ -80,8 +83,8 @@ function CargarAsignatura(codigoasignatura){
         data: datosasignaturajson,
         datatype: 'JSON',
         contentType: 'application/json',
-        success: function (reponse) {
-            var MiItems = reponse;
+        success: function (response) {
+            var MiItems = response;
             $('#CodigoAsignatura').val(MiItems[0].CodigoAsignatura);
             $('#NombreAsignatura').val(MiItems[0].NombreAsignatura);
             $('#Carrera').val(MiItems[0].Carrera);
@@ -89,7 +92,7 @@ function CargarAsignatura(codigoasignatura){
             $('#UnidadesVal').val(MiItems[0].UnidadesVal);
             $('#PromedioAprob').val(MiItems[0].PromedioAprob);
             $('#NumeroEdificio').val(MiItems[0].NumeroEdificio);
-            var btnactualizar = '<input type="submit" id="btn_actualizar" onclick="ActualizarAsignatura(' + MiItems[0].CodigoAsignatura + ')"'+
+            var btnactualizar = '<input type="submit" id="btnactualizar" onclick="ActualizarAsignatura(' + MiItems[0].CodigoAsignatura + ')"'+
             'value="Actualizar Asignatura" class="btn btn-primary"></input>';
             $('#btnagregarasignatura').html(btnactualizar);
         }
@@ -116,13 +119,38 @@ function ActualizarAsignatura(codigoasignatura){
         data: datosasignaturajson,
         datatype: 'JSON',
         contentType: 'application/json',
-        success: function(reponse){
+        success: function(reponse) {
             console.log(reponse);
             alert('Asignatura Actualizada');
         },
-        error: function(textStatus, errorThrown){
+        error: function(textStatus, errorThrown ){
             alert('Error al Actualizar Asignatura'+ textStatus + errorThrown);
         }
     });
     alert('Aviso');
+}
+
+function EliminarAsignatura(codigoasignatura){
+    var datosasignatura = {
+        CodigoAsignatura: codigoasignatura
+    };
+    var datosasignaturajson = JSON.stringify(datosasignatura);
+
+    $.ajax({
+        url: UrlDeleteAsignatura,
+        type: 'DELETE',
+        data: datosasignaturajson,
+        datatype: 'JSON',
+        contentType: 'application/json',
+        success: function (response) {
+            console.log(response);
+            alert('Asignatura eliminada correctamente');
+        },
+        error: function(textStatus, errorThrown){
+            alert('Error al eliminar asignatura'+ textStatus + errorThrown);
+        }
+    });
+    alert("Socio Eliminado");
+    CargarAsignaturas();
+
 }
